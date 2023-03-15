@@ -8,11 +8,16 @@
                         <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
                         <h1> {{ tempProduct.name }}</h1>
                         <div class="price">{{ tempProduct.unitPrice | currency:'EUR' }}</div>
+                        <div *ngIf="tempProduct.active" class="active-item">
+                            Na raspolaganju
+                        </div>
+                        <div *ngIf="!tempProduct.active" class="inactive-item">
+                            Nedostupno, u dolasku
+                        </div>
                         <a href="#" class="primary-btn">Add to cart</a>
                     </div>
-
                 </div>
-
+                
             </div>
         </div>
     </div>
