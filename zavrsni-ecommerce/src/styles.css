@@ -574,6 +574,10 @@
     text-align: start;
     font-weight: 700;
  }
+
+ .image-white{
+    mix-blend-mode: multiply;
+ }
  
  /* 
   * ----------------------------
