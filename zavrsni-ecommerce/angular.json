@@ -4,6 +4,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "zavrsni-ecommerce": {
+      "i18n": {
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
