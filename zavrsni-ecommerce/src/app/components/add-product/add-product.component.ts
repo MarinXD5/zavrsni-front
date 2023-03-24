@@ -9,7 +9,18 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  product: any = { ProductCategory: {} };
+
+  product: any = {
+    name: '',
+    description: '',
+    unitPrice: 0,
+    imageUrl: null,
+    active: 1,
+    unitsInStock: 0,
+    dateCreated: null,
+    lastUpdated: null,
+    category: { id: null, categoryName: '' }
+  };
 
   constructor(private productService: ProductService) {}
 

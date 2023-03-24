@@ -20,7 +20,7 @@
   </div>
   <div>
     <label for="active">Active</label>
-    <input type="checkbox" checked="true" class="form-control" id="active" placeholder="active" name="active"
+    <input type="checkbox" id="active" placeholder="active" name="active"
       [(ngModel)]="product.active">
   </div>
   <div>
@@ -33,8 +33,8 @@
     <input type="date" class="form-control" id="dateCreated" placeholder="dateCreated" name="dateCreated"
       [(ngModel)]="product.dateCreated">
   </div>
-  <button type="submit" (click)="addProduct()">Save product info</button>
-  <div>
+
+  <div clasS="mt-3">
     <h5>Product category info</h5>
     <div>
       <label for="product-category-id">Product category id</label>

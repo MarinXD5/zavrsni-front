@@ -69,12 +69,12 @@ export class ProductService {
       .pipe(map((response) => response._embedded.products));
   }
 
-  addProduct(product: Product): Observable<Object> {
+  addProduct(product: Product): Observable<Product> {
     if (!product.category) {
       product.category = {};
     }
 
-    return this.httpClient.post<Object>(`${this.addProductUrl}`, product);
+    return this.httpClient.post<Product>(`${this.addProductUrl}`, product);
   }
 }
 
