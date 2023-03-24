@@ -1,42 +1,51 @@
 <form>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="name" name="name" [(ngModel)]="product.name">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" placeholder="description" name="description"
+      [(ngModel)]="product.description">
+  </div>
+  <div>
+    <label for="unitPrice">Unit Price</label>
+    <input type="text" class="form-control" id="unitPrice" placeholder="unitPrice" name="unitPrice"
+      [(ngModel)]="product.unitPrice">
+  </div>
+  <div>
+    <label for="imageUrl">Image</label>
+    <input type="file" class="form-control" id="imageUrl" placeholder="imageUrl" [(ngModel)]="product.imageUrl"
+      name="imageUrl">
+  </div>
+  <div>
+    <label for="active">Active</label>
+    <input type="checkbox" checked="true" class="form-control" id="active" placeholder="active" name="active"
+      [(ngModel)]="product.active">
+  </div>
+  <div>
+    <label for="unitsInStock">Units in stock</label>
+    <input type="number" class="form-control" id="unitsInStock" placeholder="unitsInStock" name="unitsInStock"
+      [(ngModel)]="product.unitsInStock">
+  </div>
+  <div>
+    <label for="dateCreated">Date</label>
+    <input type="date" class="form-control" id="dateCreated" placeholder="dateCreated" name="dateCreated"
+      [(ngModel)]="product.dateCreated">
+  </div>
+  <button type="submit" (click)="addProduct()">Save product info</button>
+  <div>
+    <h5>Product category info</h5>
     <div>
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="name" name="name" [(ngModel)]="product.name">
+      <label for="product-category-id">Product category id</label>
+      <input type="number" class="form-control" id="product-category-id" placeholder="product-category-id"
+        name="productCategoryId" [(ngModel)]="product.category.id">
     </div>
     <div>
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" placeholder="description" name="description" [(ngModel)]="product.description">
+      <label for="product-category-name">Product category name</label>
+      <input type="text" class="form-control" id="product-category-name" placeholder="product-category-name"
+        name="productCategoryName" [(ngModel)]="product.category.categoryName">
     </div>
-    <div>
-        <label for="unitPrice">Unit Price</label>
-        <input type="text" class="form-control" id="unitPrice" placeholder="unitPrice" name="unitPrice" [(ngModel)]="product.unitPrice">
-    </div>
-    <div>
-        <label for="imageUrl">Image</label>
-        <input type="file" class="form-control" id="imageUrl" placeholder="imageUrl" [(ngModel)]="product.imageUrl" name="imageUrl">
-    </div>
-    <div>
-        <label for="active">Active</label>
-        <input type="checkbox" checked="true" class="form-control" id="active" placeholder="active" name="active" [(ngModel)]="product.active">
-    </div>
-    <div>
-        <label for="unitsInStock">Units in stock</label>
-        <input type="number" class="form-control" id="unitsInStock" placeholder="unitsInStock" name="unitsInStock" [(ngModel)]="product.unitsInStock">
-    </div>
-    <div>
-        <label for="dateCreated">Date</label>
-        <input type="date" class="form-control" id="dateCreated" placeholder="dateCreated" name="dateCreated" [(ngModel)]="product.dateCreated">
-    </div>
-    <div>
-        <h5>Product category info</h5>
-        <div>
-            <label for="product-category-id">Product category id</label>
-            <input type="number" class="form-control" id="product-category-id" placeholder="product-category-id" name="productCategoryId" [(ngModel)]="product.category.id">
-        </div>
-        <div>
-            <label for="product-category-name">Product category name</label>
-            <input type="text" class="form-control" id="product-category-name" placeholder="product-category-name" name="productCategoryName" [(ngModel)]="product.category.categoryName">
-        </div>
-    </div>
-    <button type="submit" (click)="addProduct()">Submit</button>
+  </div>
+  <button type="submit" (click)="addProduct()">Save product category</button>
 </form>
