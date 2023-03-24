@@ -11,6 +11,7 @@ export class ProductService {
 
   private baseUrl = 'http://localhost:8080/api/products';
   private categoryUrl = 'http://localhost:8080/api/product-category';
+  private addProductUrl = 'http://localhost:8080/add-product';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -62,6 +63,15 @@ export class ProductService {
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
       map(response => response._embedded.products)
     );
+  }
+
+  addProduct(product: Product): Observable<Object>{
+
+    if (!product.category) {
+      product.category = {};
+  }
+
+    return this.httpClient.post<Object>(`${this.addProductUrl}`, product);
   }
 }
 

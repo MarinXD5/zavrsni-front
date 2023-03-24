@@ -10,6 +10,8 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:'products/:id', component: ProductDetailsComponent},
@@ -27,13 +29,17 @@ const routes: Routes = [
     ProductListComponent,
     ProductCategoryMenuComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
