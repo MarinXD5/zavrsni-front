@@ -4,6 +4,10 @@
     <input type="text" class="form-control" id="name" placeholder="name" name="name" [(ngModel)]="product.name">
   </div>
   <div>
+    <label for="sku">Sku</label>
+    <input type="text" class="form-control" id="sku" placeholder="sku" name="sku" [(ngModel)]="product.sku">
+  </div>
+  <div>
     <label for="description">Description</label>
     <input type="text" class="form-control" id="description" placeholder="description" name="description"
       [(ngModel)]="product.description">
@@ -20,8 +24,7 @@
   </div>
   <div>
     <label for="active">Active</label>
-    <input type="checkbox" id="active" placeholder="active" name="active"
-      [(ngModel)]="product.active">
+    <input type="checkbox" id="active" placeholder="active" name="active" [(ngModel)]="product.active">
   </div>
   <div>
     <label for="unitsInStock">Units in stock</label>

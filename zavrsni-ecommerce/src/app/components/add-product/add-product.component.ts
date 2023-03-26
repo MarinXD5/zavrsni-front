@@ -9,7 +9,6 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-
   product: any = {
     name: '',
     description: '',
@@ -19,15 +18,23 @@ export class AddProductComponent implements OnInit {
     unitsInStock: 0,
     dateCreated: null,
     lastUpdated: null,
-    category: { id: null, categoryName: '' }
+    category: { id: null, categoryName: '' },
   };
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.checkIfProductIsAvailable();
+  }
 
   addProduct() {
     console.log(this.product);
     this.productService.addProduct(this.product).subscribe();
+  }
+
+  checkIfProductIsAvailable() {
+    if (this.product.unitsInStock === 0) {
+      this.product.active = 0;
+    }
   }
 }

@@ -70,10 +70,6 @@ export class ProductService {
   }
 
   addProduct(product: Product): Observable<Product> {
-    if (!product.category) {
-      product.category = {};
-    }
-
     return this.httpClient.post<Product>(`${this.addProductUrl}`, product);
   }
 }
