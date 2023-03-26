@@ -13,8 +13,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
+  { path: 'about-us', component: AboutUsComponent},
+  { path: 'contact-us', component: ContactUsComponent},
+  { path: 'help', component: HelpComponent},
+  { path: 'cart-details', component: CartDetailsComponent},
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'search/:keyword', component: ProductListComponent },
   { path: 'category/:id', component: ProductListComponent },
@@ -33,6 +41,10 @@ const routes: Routes = [
     ProductDetailsComponent,
     AddProductComponent,
     CartStatusComponent,
+    CartDetailsComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,

@@ -852,9 +852,12 @@ footer ul li a {
 }
 
 footer {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height: 45px;
   background: #232324;
   z-index: 1;
-  position: relative;
   text-align: center
 }
 
