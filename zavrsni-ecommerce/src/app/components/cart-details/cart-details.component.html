@@ -19,15 +19,15 @@
             <label>Quantity:</label>
             <div class="row no-gutters">
               <div class="col">
-                <button (click)="incrementQuantity(tempCartItems)" class="btn btn-primary btn-sm"
-                  style="background: #74ccc1; border: 1px solid white;"><i class="fas fa-plus"></i></button>
+                <button (click)="decrementQuantity(tempCartItems)" class="btn btn-primary btn-sm"
+                  style="background: #74ccc1; border: 1px solid white;"><i class="fas fa-minus"></i></button>
               </div>
               <div class="col ml-5 mr-2">
                 {{tempCartItems.quantity}}
               </div>
               <div class="col">
-                <button (click)="decrementQuantity(tempCartItems)" class="btn btn-primary btn-sm"
-                  style="background: #74ccc1; border: 1px solid white;"><i class="fas fa-minus"></i></button>
+                <button (click)="incrementQuantity(tempCartItems)" class="btn btn-primary btn-sm"
+                  style="background: #74ccc1; border: 1px solid white;"><i class="fas fa-plus"></i></button>
               </div>
             </div>
             <div class="row">

@@ -21,11 +21,7 @@
               Unavailable, arriving
             </div>
             <div *ngIf="(tempProduct.active)">
-              <button class="btn btn-primary btn-sm" (click)="addToCart(tempProduct)">Add to cart</button>
-            </div>
-            <div *ngIf="(!tempProduct.active)">
-              <button class="btn btn-primary btn-sm" (click)="addToCart(tempProduct)" style="display: none;">Add to
-                cart</button>
+              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1;" (click)="addToCart(tempProduct)">Add to cart</button>
             </div>
           </div>
         </div>
