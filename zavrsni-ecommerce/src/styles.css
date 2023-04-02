@@ -648,7 +648,7 @@ input.au-input.au-input-xl {
   border: 3px solid #ccc
 }
 
-.form-area h3 {
+.form-area h4 {
   position: absolute;
   top: -26px;
   left: 13px;
@@ -834,9 +834,14 @@ table.table.table-bordered th {
   */
 
 .btn-info {
-  color: #fff;
-  background-color: #0da8e4 !important;
-  border-color: #0da8e4 !important
+  color: #fff!important;
+  background-color:  #74ccc1!important;
+  border-color:  #74ccc1!important
+}
+
+.btn-info:hover{
+  background-color: #398179!important;
+  border-color: #398179!important;
 }
 
 a.primary-btn {

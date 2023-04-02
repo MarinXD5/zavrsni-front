@@ -11,14 +11,17 @@ import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HelpComponent } from './components/help/help.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
+  { path: 'checkout', component: CheckoutComponent},
+  { path: 'add-product', component: AddProductComponent},
   { path: 'about-us', component: AboutUsComponent},
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'help', component: HelpComponent},
@@ -45,17 +48,19 @@ const routes: Routes = [
     AboutUsComponent,
     ContactUsComponent,
     HelpComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     NgbModule,
-    BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
