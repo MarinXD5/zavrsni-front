@@ -18,8 +18,12 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HelpComponent } from './components/help/help.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthbuttoncomponentComponent } from './components/authbuttoncomponent/authbuttoncomponent.component';
+
 
 const routes: Routes = [
+  { path: 'login', component: AuthbuttoncomponentComponent},
   { path: 'checkout', component: CheckoutComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'about-us', component: AboutUsComponent},
@@ -48,7 +52,7 @@ const routes: Routes = [
     AboutUsComponent,
     ContactUsComponent,
     HelpComponent,
-    CheckoutComponent
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,14 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-gumhee1zxgvdei6o.us.auth0.com',
+      clientId: 'Uaxgrtoga5oWWJYeZ3xRjDNisMMhNDL9',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],
