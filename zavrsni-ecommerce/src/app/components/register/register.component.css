@@ -1,0 +1,11 @@
+.register-section{
+    margin-top: 100px;
+}
+
+.links-UM{
+    text-decoration: none;
+}
+
+.links-UM:hover{
+    text-decoration: underline;
+}
