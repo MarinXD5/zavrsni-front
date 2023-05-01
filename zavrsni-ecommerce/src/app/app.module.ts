@@ -19,21 +19,20 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { HelpComponent } from './components/help/help.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AuthModule } from '@auth0/auth0-angular';
-import { AuthbuttoncomponentComponent } from './components/authbuttoncomponent/authbuttoncomponent.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 
 const routes: Routes = [
+  { path: 'verify-email', component: VerifyEmailComponent},
   { path: 'reset-password', component: ForgotPasswordComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'dashboard', component: DashboardComponent},
   { path: 'checkout', component: CheckoutComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'about-us', component: AboutUsComponent},
@@ -65,9 +64,9 @@ const routes: Routes = [
     CheckoutComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,

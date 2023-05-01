@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
+import { GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +64,32 @@ export class AuthService {
     }, (err: any) =>{
       alert("Something went wrong! Please check if you've entered correct email!");
     })
+  }
+
+  loginGoogle() {
+    return this.fireAuth.signInWithPopup(new GoogleAuthProvider).then(res => {  
+      this.router.navigate(['products']);
+      localStorage.setItem('token', JSON.stringify(res.user?.uid));
+    }, err => {
+      alert(err);
+    });
+  }
+
+  loginTwitter() {
+    return this.fireAuth.signInWithPopup(new TwitterAuthProvider).then(res => {  
+      this.router.navigate(['products']);
+      localStorage.setItem('token', JSON.stringify(res.user?.uid));
+    }, err => {
+      alert(err);
+    });
+  }
+
+  loginGithub() {
+    return this.fireAuth.signInWithPopup(new GithubAuthProvider).then(res => {  
+      this.router.navigate(['products']);
+      localStorage.setItem('token', JSON.stringify(res.user?.uid));
+    }, err => {
+      alert(err);
+    });
   }
 }

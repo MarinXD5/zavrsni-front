@@ -33,4 +33,16 @@ export class LoginComponent implements OnInit {
     this.password = '';
   }
 
+  signInWithGoogle() {
+    this.auth.loginGoogle();
+  }
+
+  signInWithTwitter() {
+    this.auth.loginTwitter();
+  }
+
+  signInWithGithub() {
+    this.auth.loginGithub();
+  }
+
 }

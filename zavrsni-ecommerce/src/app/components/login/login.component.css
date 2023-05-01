@@ -9,3 +9,8 @@
 .links-UM:hover{
     text-decoration: underline;
 }
+
+img{
+    height: 20px;
+    width: 20px;
+}
