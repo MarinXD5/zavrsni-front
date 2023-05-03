@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -25,13 +27,16 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     });
+
+    this.auth.getUserFromDb();
   }
 
   listProducts() {

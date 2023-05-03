@@ -134,7 +134,15 @@ aside.menu-sidebar.d-none.d-lg-block.clr {
   background: 0 0;
   z-index: 99999999;
   height: 75px;
-  box-shadow: -2px 0 4px #0000003b
+  box-shadow: -2px 0 4px #0000003b;
+  width: 25%;
+}
+
+.auth-links{
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* 
@@ -877,11 +885,12 @@ footer ul li a {
 footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 87%;
   height: 45px;
   background: #232324;
   z-index: 1;
-  text-align: center
+  text-align: center;
+  right: 0;
 }
 
 footer li a {

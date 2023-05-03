@@ -1,18 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Product } from '../common/product';
 import { ProductCategory } from '../common/product-category';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class ProductService implements OnInit{
   private baseUrl = 'http://localhost:8080/api/products';
   private categoryUrl = 'http://localhost:8080/api/product-category';
   private addProductUrl = 'http://localhost:8080/add-product';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private auth: AuthService) {}
+
+  ngOnInit(): void {
+  }
 
   getProductListPaginate(
     thePage: number,
@@ -57,7 +61,6 @@ export class ProductService {
   }
 
   getProduct(theId: number): Observable<Product> {
-    console.log(theId);
     const productUrl = `${this.baseUrl}/${theId}`;
 
     return this.httpClient.get<Product>(productUrl);

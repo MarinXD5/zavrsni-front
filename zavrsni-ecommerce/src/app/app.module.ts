@@ -26,6 +26,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AuthService } from './services/auth.service';
 
 
 const routes: Routes = [
@@ -73,6 +76,8 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     NgbModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
@@ -84,7 +89,7 @@ const routes: Routes = [
       }
     }),
   ],
-  providers: [ProductService],
+  providers: [ProductService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

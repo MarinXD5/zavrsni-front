@@ -7,7 +7,13 @@
         <img src="assets/images/products/logo.png" alt="Name of my shop" class="img-responsive">
       </a>
     </div>
+    <div class="auth-links">
+      <a routerLink="/login">Log in</a>
+      <a routerLink="/register">Register</a>
+    </div>
+    
     <app-product-category-menu></app-product-category-menu>
+    
   </aside>
 
   <!-- HEADER -->
@@ -30,10 +36,6 @@
 
     <!-- MAIN CONTENT-->
     <router-outlet></router-outlet>
-
-    <div>
-      <a routerLink="/add-product">Add new product</a>
-    </div>
 
   </div>
 </div>
