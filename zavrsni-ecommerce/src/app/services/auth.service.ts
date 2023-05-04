@@ -18,15 +18,15 @@ export class AuthService {
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(res => {
       localStorage.setItem('token', 'true');
-      /*
-      if (res.user?.emailVerified == true){
-        this.router.navigate(['products']);
-      }else{
-        this.sendEmailForVerification();
+
+      if (!res.user?.emailVerified){
         this.router.navigate(['verify-email']);
-      }*/
-      alert("You have been successfuly logged in!");
-      this.router.navigate(['products']);
+        this.sendEmailForVerification();
+      }else{
+        this.router.navigate(['products']);
+        alert("You have been successfuly logged in!");
+      }
+      
     }, err => {
       alert(err);
       this.router.navigate(['login']);
@@ -37,7 +37,8 @@ export class AuthService {
   register(email: string, password: string) {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(res => {
       alert("Registration successful!");
-      //this.sendEmailForVerification();
+      this.sendEmailForVerification();
+      alert("Verification email has been sent to your email!");
       this.router.navigate(['login']);
     }, err => {
       alert(err);

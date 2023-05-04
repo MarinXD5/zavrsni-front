@@ -89,7 +89,7 @@ const routes: Routes = [
       }
     }),
   ],
-  providers: [ProductService, AuthService],
+  providers: [ProductService, AuthService, ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
