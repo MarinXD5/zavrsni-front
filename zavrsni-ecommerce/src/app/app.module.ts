@@ -29,6 +29,11 @@ import { UpdateProductComponent } from './components/update-product/update-produ
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AuthService } from './services/auth.service';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { RoleGuard } from './core/guards/role.guard';
 
 
 const routes: Routes = [
@@ -37,7 +42,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'checkout', component: CheckoutComponent},
-  { path: 'add-product', component: AddProductComponent},
+  { path: 'add-product', component: AddProductComponent, canActivate: [RoleGuard]},
   { path: 'about-us', component: AboutUsComponent},
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'help', component: HelpComponent},
@@ -80,6 +85,10 @@ const routes: Routes = [
     AngularFirestoreModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     ReactiveFormsModule,
     AuthModule.forRoot({
       domain: 'dev-gumhee1zxgvdei6o.us.auth0.com',
@@ -89,9 +98,7 @@ const routes: Routes = [
       }
     }),
   ],
-  providers: [ProductService, AuthService, ],
+  providers: [ProductService, AuthService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-

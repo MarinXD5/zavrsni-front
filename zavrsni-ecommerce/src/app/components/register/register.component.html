@@ -1,35 +1,44 @@
 <div class="register-section">
-    <div class="container-fluid">
-        <div class="card shadow">
-            <div class="card-body">
-                <form>
-                    <div class="mb-3">
-                        <h4 class="text-dark text-muted">Register</h4>
-                    </div>
-                    <div class="mb-3">
-                        <label for="EmailRegister" class="form-label">Email address</label>
-                        <input type="email" class="form-control" aria-describedby="emailRegister" name="EmailRegister"
-                            [(ngModel)]="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="passwordRegister" class="form-label">Password</label>
-                        <input type="password" class="form-control" aria-describedby="passwordRegister"
-                            name="passwordRegister" [(ngModel)]="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="repeatPasswordRegister" class="form-label">Password</label>
-                        <input type="password" class="form-control" aria-describedby="repeatPasswordRegister"
-                            name="repeatPasswordRegister" [(ngModel)]="repeatPassword">
-                    </div>
-                    <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="/login" class="links-UM">Alreay have an account? <span
-                                    class="text-danger">Log In</span></a>
-                        </div>
-                    </div>
-                </form>
+  <div class="container-fluid">
+    <div class="card shadow">
+      <div class="card-body">
+        <form>
+            <div class="mb-3">
+                <h4 class="text-dark text-muted">Register</h4>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" aria-describedby="Name" name="Name"
+                [(ngModel)]="name">
+            </div>
+            <div class="mb-3">
+                <label for="Surname" class="form-label">Surname</label>
+                <input type="text" class="form-control" aria-describedby="Surname" name="Surname"
+                [(ngModel)]="surname">
+            </div>
+            <div class="mb-3">
+                <label for="EmailRegister" class="form-label">Email address</label>
+                <input type="email" class="form-control" aria-describedby="emailRegister" name="EmailRegister"
+                [(ngModel)]="email">
+            </div>
+            <div class="mb-3">
+                <label for="passwordRegister" class="form-label">Password</label>
+                <input type="password" class="form-control" aria-describedby="passwordRegister" name="passwordRegister"
+                [(ngModel)]="password">
+            </div>
+            <div class="mb-3">
+                <label for="repeatPasswordRegister" class="form-label">Password</label>
+                <input type="password" class="form-control" aria-describedby="repeatPasswordRegister"
+                name="repeatPasswordRegister" [(ngModel)]="repeatPassword">
+            </div>
+              <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+            <div class="row">
+                <div class="col-6">
+                  <a href="/login" class="links-UM">Alreay have an account? <span class="text-danger">Log In</span></a>
+                </div>
+            </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

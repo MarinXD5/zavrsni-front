@@ -1,0 +1,46 @@
+.au-btn-security {
+  margin-left: 200px;
+  right: 0;
+  min-width: 95px;
+  color: #fff;
+  border: 3px solid white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 43px;
+  background: #74ccc1;
+}
+
+.au-btn-security:hover {
+  background: #398179;
+}
+
+.au-btn-sec {
+  margin-left: 20px;
+  right: 0;
+  min-width: 95px;
+  color: #fff;
+  border: 3px solid white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 43px;
+  background: #74ccc1;
+}
+
+.au-btn-sec:hover {
+  background: #398179;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .au-button-security {
+    margin-left: 10px;
+    background: red;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .au-button-security {
+    margin-left: 10px;
+    background: red;
+  }
+}

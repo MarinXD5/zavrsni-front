@@ -35,8 +35,6 @@ export class ProductListComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     });
-
-    this.auth.getUserFromDb();
   }
 
   listProducts() {

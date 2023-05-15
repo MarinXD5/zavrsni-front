@@ -3,14 +3,14 @@
 
     <img src="{{product.imageUrl}}" class="detail-img">
 
-    <h3 i18n>{{product.name}}</h3>
+    <h3>{{product.name}}</h3>
     <div class="price">{{product.unitPrice | currency: 'EUR'}}</div>
-    <button (click)="addToCart()" class="btn btn-primary btn-sm" i18n>Add to cart</button>
+    <button (click)="addToCart()" class="btn btn-primary btn-sm">Add to cart</button>
 
     <hr>
-    <h4 i18n>Description</h4>
-    <p i18n>{{product.description}}</p>
+    <h4>Description</h4>
+    <p>{{product.description}}</p>
 
-    <a routerLink="/products" class="mt-5" i18n>Go back</a>
+    <a routerLink="/products" class="mt-5">Go back</a>
   </div>
 </div>

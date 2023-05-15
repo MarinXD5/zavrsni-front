@@ -1,9 +1,18 @@
 <div class="form-header">
-
-  <input #myInput type="text" placeholder="Search for products..." class="au-input au-input-xl"
+  
+    <input #myInput type="text" placeholder="Search for products..." class="au-input au-input-xl"
     (keyup.enter)="doSearch(myInput.value)" />
+    
+    <button (click)="doSearch(myInput.value)" class="au-btn-submit">
+      Search
+    </button>
 
-  <button (click)="doSearch(myInput.value)" class="au-btn-submit">
-    Search
-  </button>
+    <a *ngIf="currentUser$ | async as user; else loginButton" >
+      Hello {{ user }}
+    </a>
+    <ng-template #loginButton>
+      <button class="au-btn-security" routerLink="/login">Log in</button>
+      <button class="au-btn-sec" routerLink="/register">Register</button>
+    </ng-template>
+    <button class="au-btn-sec" (click)="signOut()">Sign Out</button>
 </div>

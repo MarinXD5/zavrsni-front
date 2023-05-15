@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@auth0/auth0-angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  name: string = '';
+  surname: string = '';
   email: string = '';
   password: string = '';
   repeatPassword: string = '';
@@ -24,23 +27,10 @@ export class RegisterComponent implements OnInit {
     }
     
     this.auth.register(this.email, this.password);
-    this.registerIntoDB();
 
     this.email = '';
     this.password = '';
     this.repeatPassword = '';
-  }
-
-  registerIntoDB(){
-    let Record : any = {};
-    Record['email'] = this.email;
-    Record['role'] = 'Member';
-
-    this.auth.insertIntoDb(Record).then(res => {
-      alert("Successfully inserted into database");
-    }, err => {
-      alert(err);
-    })
   }
 
 }

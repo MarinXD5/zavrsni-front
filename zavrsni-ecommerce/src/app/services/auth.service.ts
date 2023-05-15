@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
 import { GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider } from '@angular/fire/auth';
@@ -11,8 +11,16 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth, private router: Router, private fireServices: AngularFirestore) { }
 
-  insertIntoDb(Record: any) {
-    return this.fireServices.collection('users').add(Record);
+  getUserFromFireStoreAuth(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.fireAuth.authState.subscribe(user => {
+        if (user) {
+          resolve(user);
+        } else {
+          reject("User is not logged in");
+        }
+      });  
+    })
   }
 
   login(email: string, password: string) {
@@ -36,6 +44,12 @@ export class AuthService {
 
   register(email: string, password: string) {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(res => {
+      if (res && res.user){
+        this.fireServices.collection('users').doc(res.user.uid).set({
+          email: email,
+          role: 'Member'
+        });
+      }
       alert("Registration successful!");
       this.sendEmailForVerification();
       alert("Verification email has been sent to your email!");
@@ -105,13 +119,5 @@ export class AuthService {
     });
   }
 
-  getUserFromDb() {
-    this.fireAuth.authState.subscribe(user => {
-      if (user) {
-        console.log("User is logged in", user.email);
-      } else {
-        console.log("User is not logged in");
-      }
-    });
-  }
+  
 }
