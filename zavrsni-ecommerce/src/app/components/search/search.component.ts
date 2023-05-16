@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { authState, Auth } from '@angular/fire/auth';
+import { authState, Auth, user } from '@angular/fire/auth';
+import { User } from 'firebase/auth';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -10,9 +12,14 @@ import { authState, Auth } from '@angular/fire/auth';
 export class SearchComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService, private auth: Auth) {}
 
-  currentUser$ = authState(this.auth);
+  currentUser$!: Observable<User | null>;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentUser$ = authState(this.auth);
+    this.currentUser$.subscribe((user: any) => {
+      console.log(user);
+    });
+  }
 
   doSearch(value: string) {
     console.log(`value=${value}`);

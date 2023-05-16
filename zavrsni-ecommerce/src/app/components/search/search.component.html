@@ -8,7 +8,7 @@
     </button>
 
     <a *ngIf="currentUser$ | async as user; else loginButton" >
-      Hello {{ user }}
+      Hello {{ user.email }}
     </a>
     <ng-template #loginButton>
       <button class="au-btn-security" routerLink="/login">Log in</button>
