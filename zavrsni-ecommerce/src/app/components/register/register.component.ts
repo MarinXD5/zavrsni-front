@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
     
-    this.auth.register(this.email, this.password);
+    this.auth.register(this.email, this.password, this.name, this.surname);
 
     this.email = '';
     this.password = '';

@@ -1,4 +1,5 @@
-<div style="margin-top: 15px;">
+<div style="margin-top: 100px;">
+  <p>Add Product</p>
   <form>
     <div>
       <label for="name">Name</label>
@@ -20,8 +21,9 @@
     </div>
     <div>
       <label for="imageUrl">Image</label>
+      <!--<input type="file" (change)="handleFileInput($event)" />-->
       <input type="file" class="form-control" id="imageUrl" placeholder="imageUrl" [(ngModel)]="product.imageUrl"
-        name="imageUrl">
+      name="imageUrl">
     </div>
     <div>
       <label for="active">Active</label>
@@ -41,16 +43,18 @@
     <div clasS="mt-3">
       <h5>Product category info</h5>
       <div>
-        <label for="product-category-id">Product category id</label>
-        <input type="number" class="form-control" id="product-category-id" placeholder="product-category-id"
-          name="productCategoryId" [(ngModel)]="product.category.id">
-      </div>
-      <div>
         <label for="product-category-name">Product category name</label>
-        <input type="text" class="form-control" id="product-category-name" placeholder="product-category-name"
+        <select class="form-control" id="product-category-name" placeholder="product-category-name"
           name="productCategoryName" [(ngModel)]="product.category.categoryName">
+          <option value="LAPTOPS">LAPTOPS</option>
+          <option value="DESKTOPS">DESKTOPS</option>
+          <option value="MOBILE PHONES">MOBILE PHONES</option>
+          <option value="TABLETS">TABLETS</option>
+          <option value="SMART WATCHES">SMART WATCHES</option>
+          <option value="COMPONENTS">COMPONENTS</option>
+        </select>
       </div>
     </div>
-    <button type="submit" (click)="addProduct()">Save product category</button>
+    <span><button type="submit" (click)="addProduct()">Save product!</button></span>
   </form>
 </div>
