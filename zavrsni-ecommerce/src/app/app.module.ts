@@ -34,9 +34,12 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { RoleGuard } from './core/guards/role.guard';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 
 const routes: Routes = [
+  { path: 'order-history', component: OrderHistoryComponent},
   { path: 'verify-email', component: VerifyEmailComponent},
   { path: 'reset-password', component: ForgotPasswordComponent},
   { path: 'login', component: LoginComponent},
@@ -75,6 +78,8 @@ const routes: Routes = [
     ForgotPasswordComponent,
     VerifyEmailComponent,
     UpdateProductComponent,
+    EditProductComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,

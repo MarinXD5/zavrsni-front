@@ -42,10 +42,12 @@ export class AuthService {
   }
 
 
-  register(email: string, password: string) {
+  register(email: string, password: string, name: string, surname: string) {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(res => {
       if (res && res.user){
         this.fireServices.collection('users').doc(res.user.uid).set({
+          name: name,
+          surname: surname,
           email: email,
           role: 'Member'
         });

@@ -7,12 +7,18 @@
       Search
     </button>
 
-    <a *ngIf="currentUser$ | async as user; else loginButton" >
-      Hello {{ user.email }}
+    <a *ngIf="currentUser$ | async as user; else loginButton" style = "margin-left: 200px;">
+      <p style="margin-left: 50px;">Hello {{ user.email }} </p>
+      <button class="au-btn-sec" (click)="signOut()">Sign Out</button>
+      
+      <a *ngIf="user.displayName == 'Marin Jurlina'">
+        <button class="au-btn-sec" routerLink="/add-product" style="margin-left: 10px;">Add a product</button>
+      </a>
+      <button class="au-btn-sec" routerLink="order-history" style="margin-left: 10px;">Order history!</button>
     </a>
     <ng-template #loginButton>
+      <a>Hello Guest!</a>
       <button class="au-btn-security" routerLink="/login">Log in</button>
       <button class="au-btn-sec" routerLink="/register">Register</button>
     </ng-template>
-    <button class="au-btn-sec" (click)="signOut()">Sign Out</button>
 </div>
