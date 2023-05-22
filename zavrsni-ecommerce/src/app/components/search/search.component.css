@@ -44,3 +44,46 @@
     background: red;
   }
 }
+
+.dropbtnCSS {
+  margin-left: 20px;
+  right: 0;
+  min-width: 95px;
+  color: #fff;
+  border: 3px solid white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 43px;
+  background: #74ccc1;
+}
+
+.dropdownCSS {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-contentCSS {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-contentCSS a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-contentCSS a:hover {background-color: #f1f1f1}
+
+.dropdownCSS:hover .dropdown-contentCSS {
+  display: block;
+}
+
+.dropdownCSS:hover .dropbtnCSS:hover {
+  background-color: #398179;
+}
