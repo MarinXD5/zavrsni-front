@@ -7,7 +7,7 @@
       Search
     </button>
 
-    <a *ngIf="currentUser$ | async as user; else loginButton" style = "margin-left: 200px;">
+    <a *ngIf="currentUser$ | async as user; else loginButton" style = "margin-left: 100px;">
       <p style="margin-left: 50px;">Hello {{ user.email }} </p>
       <button class="au-btn-sec" (click)="signOut()">Sign Out</button>
       
