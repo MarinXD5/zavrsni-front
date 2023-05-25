@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'checkout', component: CheckoutComponent},
   { path: 'add-product', component: AddProductComponent, canActivate: [RoleGuard]},
-  { path: 'edit-product', component: EditProductComponent, canActivate: [RoleGuard]},
+  { path: 'edit-product/:id', component: EditProductComponent, canActivate: [RoleGuard]},
   { path: 'about-us', component: AboutUsComponent},
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'help', component: HelpComponent},

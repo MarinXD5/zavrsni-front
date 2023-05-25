@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { AuthService } from 'src/app/services/auth.service';
@@ -28,7 +28,8 @@ export class ProductListComponent implements OnInit {
     private productService: ProductService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -121,5 +122,9 @@ export class ProductListComponent implements OnInit {
     const theCartItem = new CartItem(product);
 
     this.cartService.addToCart(theCartItem);
+  }
+
+  navigateToEdit(tempProduct: Product){
+    window.location.href = "/edit-product/" + tempProduct.id.toString();
   }
 }
