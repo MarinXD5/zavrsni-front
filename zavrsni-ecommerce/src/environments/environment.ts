@@ -11,7 +11,8 @@ export const environment = {
     storageBucket: "zavrsni-f85b5.appspot.com",
     messagingSenderId: "901445042281",
     appId: "1:901445042281:web:9c6952d4ea3eb0234d22f8"
-  }
+  },
+  stripePublishableKey: "pk_test_51IKE8xG1Sr7bz9t6Bhg0rcrGhQUbgA8MLb05c4wrvDWZezw2LrEXwawDDFdMr6AS7ruNnIhblTCw1Mv8Vku3zdS600QTtnX7C4"
 };
 
 /*
