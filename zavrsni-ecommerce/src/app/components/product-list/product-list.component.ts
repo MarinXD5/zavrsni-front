@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { authState, Auth, user, User } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -23,18 +24,27 @@ export class ProductListComponent implements OnInit {
   theTotalElements: number = 0;
 
   previousKeyword: string = '';
+  currentUser$!: Observable<User | null>;
+  storage: Storage = sessionStorage;
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
+     private auth: Auth
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
+    });
+
+    this.currentUser$ = authState(this.auth);
+    this.currentUser$.subscribe((user: any) => {
+      console.log(user);
+      this.storage.setItem('userEmail', JSON.stringify(user.email))
     });
   }
 
