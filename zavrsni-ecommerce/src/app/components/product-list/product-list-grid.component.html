@@ -16,14 +16,14 @@
             <div class="price">{{ tempProduct.unitPrice | currency:'EUR' }}</div>
             <div *ngIf="(tempProduct.active) && (tempProduct.unitsInStock > 0)" class="active-item">
               Available
-              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1;"><a (click)="navigateToEdit(tempProduct)">Edit</a></button>
+              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1; margin-left: 5px;"><a (click)="navigateToEdit(tempProduct)">Edit</a></button>
             </div>
             <div *ngIf="(!tempProduct.active) || (tempProduct.unitsInStock == 0)" class="inactive-item">
               Unavailable, arriving
-              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1;"><a (click)="navigateToEdit(tempProduct)">Edit</a></button>
+              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1; margin-left: 5px;"><a (click)="navigateToEdit(tempProduct)">Edit</a></button>
             </div>
             <div *ngIf="(tempProduct.active) && (tempProduct.unitsInStock > 0)">
-              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1;" (click)="addToCart(tempProduct)">Add to cart</button>
+              <button class="btn btn-primary btn-sm" style="background: #74ccc1; border: 1px solid #74ccc1; margin-top: 10px;" (click)="addToCart(tempProduct)">Add to cart</button>
             </div>
           </div>
         </div>
