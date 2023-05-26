@@ -1,0 +1,7 @@
+.sizer{
+    border-color: blue;
+    border-radius: 4px;
+    width: 150px;
+    display: flex;
+    height: 30px;
+}

@@ -42,15 +42,16 @@
                 </ngb-pagination>
               </div>
 
-              <span class="mr-2">Page size</span>
-
-              <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
-                <option>1</option>
-                <option selected="true">5</option>
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
-              </select>
+              <div class="sizer">
+                <span style="margin-right: 10px;">Size</span>
+                <select #myPageSelect (change)="updatePageSize(myPageSelect.value)" class="sizer">
+                  <option>1</option>
+                  <option selected="true">5</option>
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+              </div>
             </div>
 
           </div>
