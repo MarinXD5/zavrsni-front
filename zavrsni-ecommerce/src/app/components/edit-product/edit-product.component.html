@@ -1,1 +1,61 @@
-<p>edit-product works!</p>
+<div style="margin-top: 100px;">
+    <p>Edit product</p>
+    <form>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="name" name="name" [(ngModel)]="product.name">
+      </div>
+      <div>
+        <label for="sku">Sku</label>
+        <input type="text" class="form-control" id="sku" placeholder="sku" name="sku" [(ngModel)]="product.sku">
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="description" name="description"
+          [(ngModel)]="product.description">
+      </div>
+      <div>
+        <label for="unitPrice">Unit Price</label>
+        <input type="text" class="form-control" id="unitPrice" placeholder="unitPrice" name="unitPrice"
+          [(ngModel)]="product.unitPrice">
+      </div>
+      <div>
+        <label for="imageUrl">Image</label>
+        <!--<input type="file" (change)="handleFileInput($event)" />-->
+        <input type="file" class="form-control" id="imageUrl" placeholder="imageUrl" [(ngModel)]="product.imageUrl"
+        name="imageUrl">
+      </div>
+      <div>
+        <label for="active">Active</label>
+        <input type="checkbox" id="active" placeholder="active" name="active" [(ngModel)]="product.active">
+      </div>
+      <div>
+        <label for="unitsInStock">Units in stock</label>
+        <input type="number" class="form-control" id="unitsInStock" placeholder="unitsInStock" name="unitsInStock"
+          [(ngModel)]="product.unitsInStock">
+      </div>
+      <div>
+        <label for="dateCreated">Date</label>
+        <input type="date" class="form-control" id="dateCreated" placeholder="dateCreated" name="dateCreated"
+          [(ngModel)]="product.dateCreated">
+      </div>
+  
+      <div clasS="mt-3">
+        <h5>Product category info</h5>
+        <div>
+          <label for="product-category-name">Product category name</label>
+          <select class="form-control" id="product-category-name" placeholder="product-category-name"
+            name="productCategoryName" [(ngModel)]="product.category.categoryName">
+            <option value="LAPTOPS">LAPTOPS</option>
+            <option value="DESKTOPS">DESKTOPS</option>
+            <option value="MOBILE PHONES">MOBILE PHONES</option>
+            <option value="TABLETS">TABLETS</option>
+            <option value="SMART WATCHES">SMART WATCHES</option>
+            <option value="COMPONENTS">COMPONENTS</option>
+          </select>
+        </div>
+      </div>
+      <span><button type="submit" (click)="updateProduct()">Update product!</button></span>
+    </form>
+  </div>
+  

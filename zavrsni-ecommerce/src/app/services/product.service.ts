@@ -75,6 +75,14 @@ export class ProductService implements OnInit{
   addProduct(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(`${this.addProductUrl}`, product);
   }
+
+  getProductById(id: number): Observable<Product>{
+    return this.httpClient.get<Product>(`${this.baseUrl}/${id}`);
+  }
+
+  updateProduct(id: number, product: Product): Observable<Object>{
+    return this.httpClient.put(`${this.baseUrl}/${id}`, product);
+  }
 }
 
 interface GetResponseProducts {
