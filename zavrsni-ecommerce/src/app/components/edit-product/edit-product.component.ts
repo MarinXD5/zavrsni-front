@@ -31,7 +31,11 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  updateProduct(){
+  updateProduct(event: any){
+    const tempImageUrl = 'assets/images/products/'
+    const shortUrl = this.product.imageUrl.substring(12);
+
+    this.product.imageUrl = tempImageUrl + shortUrl;
     this.productService.updateProduct(this.route.snapshot.params['id'], this.product).subscribe(data => {
       this.product = data;
     });

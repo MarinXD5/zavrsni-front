@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/common/product';
 import { ProductCategory } from 'src/app/common/product-category';
 import { ProductService } from 'src/app/services/product.service';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-product',
@@ -23,13 +23,15 @@ export class AddProductComponent implements OnInit {
     category: { id: null, categoryName: '' },
   };
 
+  sanitizedImageUrl: SafeResourceUrl = '';
+
   constructor(private productService: ProductService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.checkIfProductIsAvailable();
   }
 
-  addProduct() {
+  addProduct(event: any) {
     console.log(this.product);
     //this.product.imageUrl = this.handleFileInput(this.product.imageUrl);
     if (this.product.category.categoryName == "LAPTOPS"){
@@ -50,6 +52,12 @@ export class AddProductComponent implements OnInit {
     if (this.product.category.categoryName == "COMPONENTS"){
       this.product.category.id = 6;
     }
+
+    const tempImageUrl = 'assets/images/products/'
+    const shortUrl = this.product.imageUrl.substring(12);
+
+    this.product.imageUrl = tempImageUrl + shortUrl;
+
     this.productService.addProduct(this.product).subscribe();
   }
 
@@ -58,17 +66,5 @@ export class AddProductComponent implements OnInit {
       this.product.active = 0;
     }
   }
-
-  sanitizeUrl(url: string): SafeUrl{
-    return this.sanitizer.bypassSecurityTrustUrl(url);
-  }
-
-  handleFileInput(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    const files = inputElement.files;
-    if (files && files.length > 0){
-      const file = files[0];
-      this.product.imageUrl = file.name;
-    }  
-  }
+  
 }

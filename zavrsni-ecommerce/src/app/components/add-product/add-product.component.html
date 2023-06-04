@@ -21,9 +21,7 @@
     </div>
     <div>
       <label for="imageUrl">Image</label>
-      <!--<input type="file" (change)="handleFileInput($event)" />-->
-      <input type="file" class="form-control" id="imageUrl" placeholder="imageUrl" [(ngModel)]="product.imageUrl"
-      name="imageUrl">
+      <input type="file" class="form-control" id="imageUrl" placeholder="imageUrl" [(ngModel)]="product.imageUrl" name="imageUrl">
     </div>
     <div>
       <label for="active">Active</label>
@@ -55,6 +53,6 @@
         </select>
       </div>
     </div>
-    <span><button type="submit" (click)="addProduct()">Save product!</button></span>
+    <span><button type="submit" (click)="addProduct($event)">Save product!</button></span>
   </form>
 </div>

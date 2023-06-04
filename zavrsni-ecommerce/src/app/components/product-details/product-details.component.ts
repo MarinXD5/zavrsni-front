@@ -11,7 +11,17 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  product!: Product;
+  product: any = {
+    name: '',
+    description: '',
+    unitPrice: 0,
+    imageUrl: '',
+    active: 1,
+    unitsInStock: 0,
+    dateCreated: null,
+    lastUpdated: null,
+    category: { id: null, categoryName: '' },
+  };
 
   constructor(
     private route: ActivatedRoute,
