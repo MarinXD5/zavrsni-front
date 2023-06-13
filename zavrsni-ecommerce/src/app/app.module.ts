@@ -36,9 +36,13 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { RoleGuard } from './core/guards/role.guard';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { CheckOutFormHelpComponent } from './components/check-out-form-help/check-out-form-help.component';
+import { CardInfoFormHelpComponent } from './components/card-info-form-help/card-info-form-help.component';
 
 
 const routes: Routes = [
+  { path: 'card-help', component: CardInfoFormHelpComponent},
+  { path: 'form-help', component: CheckOutFormHelpComponent},
   { path: 'order-history', component: OrderHistoryComponent},
   { path: 'verify-email', component: VerifyEmailComponent},
   { path: 'reset-password', component: ForgotPasswordComponent},
@@ -81,6 +85,8 @@ const routes: Routes = [
     UpdateProductComponent,
     EditProductComponent,
     OrderHistoryComponent,
+    CheckOutFormHelpComponent,
+    CardInfoFormHelpComponent,
   ],
   imports: [
     BrowserModule,
